@@ -14,35 +14,35 @@
     tools:showIn="@layout/activity_main">
 
     <ImageButton
-        android:layout_width="101dip"
-        android:layout_height="32dip"
+        android:layout_width="142dip"
+        android:layout_height="46dip"
         android:id="@+id/imageButton"
         android:background="@drawable/afrika_unselected"
-        android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/imageButton2"
-        android:layout_alignStart="@+id/imageButton2" />
+        android:layout_below="@+id/izveliesregionus"
+        android:layout_alignRight="@+id/izveliesregionus"
+        android:layout_alignEnd="@+id/izveliesregionus" />
 
     <ImageButton
-        android:layout_width="101dip"
-        android:layout_height="32dip"
+        android:layout_width="142dip"
+        android:layout_height="46dip"
         android:id="@+id/imageButton2"
         android:background="@drawable/australija_un_okeanija_unselected"
         android:layout_below="@+id/imageButton"
-        android:layout_alignLeft="@+id/imageButton5"
-        android:layout_alignStart="@+id/imageButton5" />
+        android:layout_toLeftOf="@+id/imageButton6"
+        android:layout_toStartOf="@+id/imageButton6" />
 
     <ImageButton
-        android:layout_width="101dip"
-        android:layout_height="32dip"
+        android:layout_width="142dip"
+        android:layout_height="46dip"
         android:id="@+id/imageButton3"
         android:background="@drawable/azija_unselected"
         android:layout_below="@+id/imageButton5"
-        android:layout_toLeftOf="@+id/imageButton9"
-        android:layout_toStartOf="@+id/imageButton9" />
+        android:layout_toLeftOf="@+id/imageButton6"
+        android:layout_toStartOf="@+id/imageButton6" />
 
     <ImageButton
-        android:layout_width="101dip"
-        android:layout_height="32dip"
+        android:layout_width="142dip"
+        android:layout_height="46dip"
         android:id="@+id/imageButton4"
         android:background="@drawable/dienvid_amerika_unselected"
         android:layout_alignTop="@+id/imageButton"
@@ -50,17 +50,17 @@
         android:layout_toEndOf="@+id/imageButton" />
 
     <ImageButton
-        android:layout_width="101dip"
-        android:layout_height="32dip"
+        android:layout_width="142dip"
+        android:layout_height="46dip"
         android:id="@+id/imageButton5"
         android:background="@drawable/ziemel_amerika_unselected"
         android:layout_below="@+id/imageButton2"
-        android:layout_alignLeft="@+id/imageButton3"
-        android:layout_alignStart="@+id/imageButton3" />
+        android:layout_toLeftOf="@+id/imageButton6"
+        android:layout_toStartOf="@+id/imageButton6" />
 
     <ImageButton
-        android:layout_width="101dip"
-        android:layout_height="32dip"
+        android:layout_width="142dip"
+        android:layout_height="46dip"
         android:id="@+id/imageButton6"
         android:background="@drawable/eiropa_unselected"
         android:layout_below="@+id/imageButton4"
@@ -68,8 +68,8 @@
         android:layout_toEndOf="@+id/imageButton" />
 
     <ImageButton
-        android:layout_width="101dip"
-        android:layout_height="32dip"
+        android:layout_width="142dip"
+        android:layout_height="46dip"
         android:id="@+id/imageButton7"
         android:background="@drawable/visas_valstis_unselected"
         android:layout_below="@+id/imageButton2"
@@ -77,43 +77,89 @@
         android:layout_toEndOf="@+id/imageButton3" />
 
     <ImageButton
-        android:layout_width="150dip"
-        android:layout_height="150dip"
+        android:layout_width="130dip"
+        android:layout_height="130dip"
         android:id="@+id/imageButton8"
         android:background="@drawable/rekordi"
+        android:layout_marginBottom="23dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="24dp"
-        android:layout_marginStart="24dp" />
+        android:layout_toLeftOf="@+id/imageButton9"
+        android:layout_toStartOf="@+id/imageButton9" />
 
     <ImageButton
-        android:layout_width="150dip"
-        android:layout_height="150dip"
+        android:layout_width="130dip"
+        android:layout_height="130dip"
         android:id="@+id/imageButton9"
         android:background="@drawable/sakt_unactive"
         android:layout_alignTop="@+id/imageButton8"
-        android:layout_toRightOf="@+id/imageButton8"
-        android:layout_toEndOf="@+id/imageButton8" />
+        android:layout_alignLeft="@+id/imageButton7"
+        android:layout_alignStart="@+id/imageButton7" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/izveliesregionus"
-        android:text="Izvēlies reģionus"
-        android:layout_above="@+id/imageButton"
-        android:layout_alignLeft="@+id/imageButton"
-        android:layout_alignStart="@+id/imageButton" />
+        android:text="Izvēlies reģionus:"
+        android:layout_below="@+id/imageButton10"
+        android:layout_alignLeft="@+id/imageButton10"
+        android:layout_alignStart="@+id/imageButton10" />
 
     <ImageButton
         android:layout_width="60dip"
         android:layout_height="60dip"
         android:id="@+id/imageButton10"
         android:background="@drawable/i5_unselected"
-        android:layout_above="@+id/izveliesregionus"
-        android:layout_alignLeft="@+id/imageButton8"
-        android:layout_alignStart="@+id/imageButton8"
-        android:layout_marginBottom="40dp" />
+        android:layout_below="@+id/izveliesjautajumuskaitu"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="29dp"
+        android:layout_marginStart="29dp" />
+
+    <ImageButton
+        android:layout_width="60dip"
+        android:layout_height="60dip"
+        android:id="@+id/imageButton11"
+        android:background="@drawable/i10_unselected"
+        android:layout_alignTop="@+id/imageButton10"
+        android:layout_toRightOf="@+id/imageButton10"
+        android:layout_toEndOf="@+id/imageButton10" />
+
+    <ImageButton
+        android:layout_width="60dip"
+        android:layout_height="60dip"
+        android:id="@+id/imageButton12"
+        android:background="@drawable/i15_unselected"
+        android:layout_alignTop="@+id/imageButton11"
+        android:layout_toRightOf="@+id/imageButton11"
+        android:layout_toEndOf="@+id/imageButton11" />
+
+    <ImageButton
+        android:layout_width="60dip"
+        android:layout_height="60dip"
+        android:id="@+id/imageButton13"
+        android:background="@drawable/i20_unselected"
+        android:layout_alignTop="@+id/imageButton12"
+        android:layout_toRightOf="@+id/imageButton12"
+        android:layout_toEndOf="@+id/imageButton12" />
+
+    <ImageButton
+        android:layout_width="60dip"
+        android:layout_height="60dip"
+        android:id="@+id/imageButton14"
+        android:background="@drawable/i50_unselected"
+        android:layout_alignTop="@+id/imageButton13"
+        android:layout_toRightOf="@+id/imageButton13"
+        android:layout_toEndOf="@+id/imageButton13" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/izveliesjautajumuskaitu"
+        android:text="Izvēlies jautājumu skaitu:"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/imageButton10"
+        android:layout_alignStart="@+id/imageButton10"
+        android:layout_marginTop="26dp" />
 
 
 </RelativeLayout>
