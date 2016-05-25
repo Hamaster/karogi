@@ -16,16 +16,6 @@
     <ImageButton
         android:layout_width="142dip"
         android:layout_height="46dip"
-        android:id="@+id/imageButton_afrika"
-        android:background="@drawable/afrika_unselected"
-        android:layout_below="@+id/imageButton_visas_valstis"
-        android:layout_alignLeft="@+id/izveliesregionus"
-        android:layout_alignStart="@+id/izveliesregionus"
-        android:layout_marginTop="5dp"/>
-
-    <ImageButton
-        android:layout_width="142dip"
-        android:layout_height="46dip"
         android:id="@+id/imageButton_australija_un_okeanija"
         android:background="@drawable/australija_un_okeanija_unselected"
         android:layout_below="@+id/imageButton_afrika"
@@ -44,11 +34,28 @@
     <ImageButton
         android:layout_width="142dip"
         android:layout_height="46dip"
+        android:id="@+id/imageButton_afrika"
+        android:background="@drawable/afrika_unselected"
+        android:layout_below="@+id/imageButton_visas_valstis"
+        android:layout_marginTop="5dp"
+        android:layout_toLeftOf="@+id/view" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_height="1dp"
+        android:layout_width="0dp"
+        android:layout_centerHorizontal="true" />
+
+    <ImageButton
+        android:layout_width="142dip"
+        android:layout_height="46dip"
         android:id="@+id/imageButton_dienvid_amerika"
         android:background="@drawable/dienvid_amerika_unselected"
         android:layout_alignTop="@+id/imageButton_afrika"
         android:layout_alignLeft="@+id/imageButton_eiropa"
-        android:layout_alignStart="@+id/imageButton_eiropa" />
+        android:layout_alignStart="@+id/imageButton_eiropa"
+        android:layout_toRightOf="@+id/view" />
+
 
     <ImageButton
         android:layout_width="142dip"
@@ -76,24 +83,6 @@
         android:layout_below="@+id/izveliesregionus"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"/>
-
-    <ImageButton
-        android:layout_width="130dip"
-        android:layout_height="130dip"
-        android:id="@+id/imageButton_rekordi"
-        android:background="@drawable/rekordi"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/imageButton_azija"
-        android:layout_alignStart="@+id/imageButton_azija" />
-
-    <ImageButton
-        android:layout_width="130dip"
-        android:layout_height="130dip"
-        android:id="@+id/imageButton_sakt"
-        android:background="@drawable/sakt_unactive"
-        android:layout_alignTop="@+id/imageButton_rekordi"
-        android:layout_alignRight="@+id/imageButton_eiropa"
-        android:layout_alignEnd="@+id/imageButton_eiropa" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -132,7 +121,7 @@
         android:background="@drawable/i15_unselected"
         android:layout_alignTop="@+id/imageButton_10"
         android:layout_toRightOf="@+id/imageButton_10"
-        android:layout_toEndOf="@+id/imageButton_10" />
+        android:layout_toEndOf="@+id/imageButton_10"/>
 
     <ImageButton
         android:layout_width="60dip"
@@ -162,5 +151,30 @@
         android:layout_alignStart="@+id/imageButton_5"
         android:textColor="@color/darkBrown" />
 
+    <ImageButton
+        android:layout_width="130dip"
+        android:layout_height="130dip"
+        android:id="@+id/imageButton_rekordi"
+        android:background="@drawable/rekordi"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/imageButton_azija"
+        android:layout_alignStart="@+id/imageButton_azija"
+        android:layout_toLeftOf="@+id/view1"/>
+
+    <View
+        android:id="@+id/view1"
+        android:layout_height="1dp"
+        android:layout_width="10dp"
+        android:layout_centerHorizontal="true"/>
+
+    <ImageButton
+        android:layout_width="130dip"
+        android:layout_height="130dip"
+        android:id="@+id/imageButton_sakt"
+        android:background="@drawable/sakt_unactive"
+        android:layout_alignTop="@+id/imageButton_rekordi"
+        android:layout_alignRight="@+id/imageButton_eiropa"
+        android:layout_alignEnd="@+id/imageButton_eiropa"
+        android:layout_toRightOf="@+id/view1" />
 
 </RelativeLayout>
