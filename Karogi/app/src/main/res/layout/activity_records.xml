@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@color/yellow"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rezultati"
+        android:text="Rezultāti"
+        android:textColor="@color/darkBrown"
+        android:textSize="20.0sp"
+        android:textStyle="bold"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pareiziatbildetiejaut"
+        android:text="Pareizi atbildētie jautājumi: x/y"
+        android:textColor="@color/darkBrown"
+        android:textSize="20.0sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/rezultati"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp" />
+
+      <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/precizitate"
+        android:text="Precizitāte: x%"
+        android:textColor="@color/darkBrown"
+        android:textSize="20.0sp"
+        android:textStyle="bold"
+          android:layout_below="@+id/pareiziatbildetiejaut"
+          android:layout_centerHorizontal="true"
+          android:layout_marginTop="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/punkti"
+        android:text="Punkti: xxx"
+        android:textColor="@color/darkBrown"
+        android:textSize="20.0sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/precizitate"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/augstakaisrezultats"
+        android:text="Augstākais rezultāts: xxx"
+        android:textColor="@color/darkBrown"
+        android:textSize="20.0sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/punkti"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        />
+
+    <ImageButton
+        android:layout_width="130dip"
+        android:layout_height="130dip"
+        android:id="@+id/imageButton_atkartot"
+        android:background="@drawable/atkartot"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/view1"
+        android:layout_alignLeft="@+id/imageButton_ziemel_amerika"
+        android:layout_alignStart="@+id/imageButton_ziemel_amerika" />
+
+    <View
+        android:id="@+id/view1"
+        android:layout_height="1dp"
+        android:layout_width="10dp"
+        android:layout_centerHorizontal="true"/>
+
+    <ImageButton
+        android:layout_width="130dip"
+        android:layout_height="130dip"
+        android:id="@+id/imageButton_uz_izvelni"
+        android:background="@drawable/uz_izvelni"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/view1"
+        android:layout_toEndOf="@+id/view1" />
+
+</RelativeLayout>

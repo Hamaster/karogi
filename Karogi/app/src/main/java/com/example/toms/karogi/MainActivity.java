@@ -297,6 +297,7 @@ public class MainActivity extends Activity {
                 button_15.setBackgroundResource(R.drawable.i15_unselected);
                 button_20.setBackgroundResource(R.drawable.i20_unselected);
                 button_50.setBackgroundResource(R.drawable.i50_unselected);
+                //todo set the rest as false
                 saktBackgroundCheck();
             }
         });
