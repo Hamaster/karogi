@@ -1,6 +1,7 @@
 package com.example.toms.karogi;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -35,6 +36,7 @@ public class MainActivity extends Activity {
     boolean btn5, btn10, btn15, btn20, btn50 = false;
     boolean btnVisasValstis, btnAfrika, btnAustralijaUnOkeanija, btnZiemelAmerika, btnAzija, btnDienvidAmerika, btnEiropa = false;
     boolean saktIsActive = false;
+    int questionCount = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,9 +55,49 @@ public class MainActivity extends Activity {
         return saktIsActive;
     }
 
+    private String[] evaluateRegions(){
+        String[] regions = new String[]{"visasValstisOff", "afrikaOff", "australijaUnOkeanijaOff", "ziemelAmerikaOff", "azijaOff", "dienvidAmerikaOff", "eiropaOff"};
+        if(btnVisasValstis){
+            regions[0] = "visasValstisOn";
+            regions[1] = "afrikaOn";
+            regions[2] = "australijaUnOkeanijaOn";
+            regions[3] = "ziemelAmerikaOn";
+            regions[4] = "azijaOn";
+            regions[5] = "dienvidAmerikaOn";
+            regions[6] = "eiropaOn";
+            return regions;
+        }
+        if(btnAfrika)regions[1] = "afrikaOn";
+        if(btnAustralijaUnOkeanija) regions[2] = "australijaUnOkeanijaOn";
+        if(btnZiemelAmerika) regions[3] = "ziemelAmerikaOn";
+        if(btnAzija) regions[4] = "azijaOn";
+        if(btnDienvidAmerika) regions[5] = "dienvidAmerikaOn";
+        if(btnEiropa) regions[6] = "eiropaOn";
+        return regions;
+    }
+
     private void saktBackgroundCheck(){
         if(evaluateSakt()) sakt.setBackgroundResource(R.drawable.sakt_active);
         else sakt.setBackgroundResource(R.drawable.sakt_unactive);
+    }
+
+    private int evaluateQuestionCount(){
+        if(btn5){
+            questionCount = 5; return questionCount;
+        }
+        else if(btn10){
+            questionCount = 10; return questionCount;
+        }
+        else if(btn15){
+            questionCount = 15; return questionCount;
+        }
+        else if (btn20){
+            questionCount = 20; return questionCount;
+        }
+        else if(btn50){
+            questionCount = 50; return questionCount;
+        }
+        return 0;
     }
 
     public void addListenersForMenuButtons(){
@@ -73,7 +115,12 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v){
                 if(evaluateSakt()){
-                    //taketh you to quiz
+                    //goes to quiz
+                    Intent intent = new Intent(MainActivity.this, QuestionsActivity.class);
+                    Bundle b = new Bundle();
+                    b.putInt("questionCount", evaluateQuestionCount());
+                    b.putStringArray("regions", evaluateRegions());
+                    startActivity(intent);
                 }
                 else{
                     //show toast
@@ -292,12 +339,16 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 btn5 = true;
+                btn10 = false;
+                btn15 = false;
+                btn20 = false;
+                btn50 = false;
                 button_5.setBackgroundResource(R.drawable.i5_selected);
                 button_10.setBackgroundResource(R.drawable.i10_unselected);
                 button_15.setBackgroundResource(R.drawable.i15_unselected);
                 button_20.setBackgroundResource(R.drawable.i20_unselected);
                 button_50.setBackgroundResource(R.drawable.i50_unselected);
-                //todo set the rest as false
+
                 saktBackgroundCheck();
             }
         });
@@ -305,7 +356,11 @@ public class MainActivity extends Activity {
         button_10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                btn5 = false;
                 btn10 = true;
+                btn15 = false;
+                btn20 = false;
+                btn50 = false;
                 button_5.setBackgroundResource(R.drawable.i5_unselected);
                 button_10.setBackgroundResource(R.drawable.i10_selected);
                 button_15.setBackgroundResource(R.drawable.i15_unselected);
@@ -318,7 +373,11 @@ public class MainActivity extends Activity {
         button_15.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                btn5 = false;
+                btn10 = false;
                 btn15 = true;
+                btn20 = false;
+                btn50 = false;
                 button_5.setBackgroundResource(R.drawable.i5_unselected);
                 button_10.setBackgroundResource(R.drawable.i10_unselected);
                 button_15.setBackgroundResource(R.drawable.i15_selected);
@@ -331,7 +390,11 @@ public class MainActivity extends Activity {
         button_20.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                btn5 = false;
+                btn10 = false;
+                btn15 = false;
                 btn20 = true;
+                btn50 = false;
                 button_5.setBackgroundResource(R.drawable.i5_unselected);
                 button_10.setBackgroundResource(R.drawable.i10_unselected);
                 button_15.setBackgroundResource(R.drawable.i15_unselected);
@@ -344,6 +407,10 @@ public class MainActivity extends Activity {
         button_50.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                btn5 = false;
+                btn10 = false;
+                btn15 = false;
+                btn20 = false;
                 btn50 = true;
                 button_5.setBackgroundResource(R.drawable.i5_unselected);
                 button_10.setBackgroundResource(R.drawable.i10_unselected);

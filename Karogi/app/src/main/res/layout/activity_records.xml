@@ -14,7 +14,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/rezultati"
+        android:id="@+id/valstsNosaukums"
         android:text="Rezultāti"
         android:textColor="@color/darkBrown"
         android:textSize="20.0sp"
@@ -30,7 +30,7 @@
         android:textColor="@color/darkBrown"
         android:textSize="20.0sp"
         android:textStyle="bold"
-        android:layout_below="@+id/rezultati"
+        android:layout_below="@+id/valstsNosaukums"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp" />
 

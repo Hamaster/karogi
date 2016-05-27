@@ -14,7 +14,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/rezultati"
+        android:id="@+id/valstsNosaukums"
         android:text="Valsts Nosaukums"
         android:textColor="@color/darkBrown"
         android:textSize="20.0sp"
@@ -22,27 +22,42 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
+     <View
+        android:id="@+id/view1"
+        android:layout_height="1dp"
+        android:layout_width="2dp"
+        android:layout_centerHorizontal="true"/>
+
     <ImageButton
-        android:layout_width="200dip"
-        android:layout_height="120dip"
+        android:layout_width="170dip"
+        android:layout_height="100dip"
         android:id="@+id/imageButton_firstOption"
-        android:layout_below="@+id/rezultati"
-        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/valstsNosaukums"
+        android:layout_toLeftOf="@+id/view1"
         android:layout_marginTop="27dp" />
 
     <ImageButton
-        android:layout_width="200dip"
-        android:layout_height="120dip"
+        android:layout_width="170dip"
+        android:layout_height="100dip"
         android:id="@+id/imageButton_secondOption"
-        android:layout_below="@+id/imageButton_firstOption"
-        android:layout_centerHorizontal="true" />
+        android:layout_toLeftOf="@+id/view1"
+        android:layout_toStartOf="@+id/view1"
+        android:layout_below="@+id/imageButton_firstOption" />
 
     <ImageButton
-        android:layout_width="200dip"
-        android:layout_height="120dip"
+        android:layout_width="170dip"
+        android:layout_height="100dip"
         android:id="@+id/imageButton_thirdOption"
-        android:layout_below="@+id/imageButton_secondOption"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignTop="@+id/imageButton_firstOption"
+        android:layout_toRightOf="@+id/view1"/>
+
+    <ImageButton
+        android:layout_width="170dip"
+        android:layout_height="100dip"
+        android:id="@+id/imageButton_forthOption"
+        android:layout_alignTop="@+id/imageButton_secondOption"
+        android:layout_toRightOf="@+id/view1"/>
+
 
     <ImageButton
         android:layout_width="142dip"
