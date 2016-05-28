@@ -3,14 +3,11 @@ package com.example.toms.karogi;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
-
-import android.renderscript.ScriptIntrinsicYuvToRGB;
-import android.support.v7.widget.ViewUtils;
+import android.os.Handler;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -32,7 +29,6 @@ public class QuestionsActivity extends Activity {
     ImageButton[] imgBArr;
     ImageButton btnPartraukt;
     DatabaseHandler databaseHandler;
-    int europeCountryCount = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +40,7 @@ public class QuestionsActivity extends Activity {
         regions = getIntent().getExtras().getStringArray("regions"); //string arr containing user made region selection
         databaseHandler = new DatabaseHandler(this);
         countryList = setSelectedCountryList(regions); //only countries from selected regions are given
-        Collections.shuffle(countryList, new Random(1)); //shuffles thou list
+        Collections.shuffle(countryList); //shuffles thou list
 
         txtCountry = (TextView) findViewById(R.id.valstsNosaukums);
         addListenersForButtons();
@@ -62,7 +58,7 @@ public class QuestionsActivity extends Activity {
 
         btnA.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick( View v){
+            public void onClick(View v) {
                 getAnswer(btnA.getTag());
 
             }
@@ -103,21 +99,42 @@ public class QuestionsActivity extends Activity {
         int tag = (int)object;
 
         if(tag == 1) {
-            //Toast.makeText(QuestionsActivity.this, "true",
-             //       Toast.LENGTH_LONG).show();
             score++;
             if(currentQuestion != qcount && currentQuestion != countryList.size()) {
                 setQuestionView();
             }
             else {
-                //todo taketh you to rezults
-                Intent intent = new Intent(QuestionsActivity.this, MainActivity.class);
+                //taketh you to rezults
+                Intent intent = new Intent(QuestionsActivity.this, RecordsActivity.class);
+                intent.putExtra("score", score);
+                intent.putExtra("questions", qcount);
+                intent.putExtra("regions", regions);
                 startActivity(intent);
             }
-
         }
-        else Toast.makeText(QuestionsActivity.this, "false",
-                    Toast.LENGTH_LONG).show();
+        else {
+            //Toast.makeText(QuestionsActivity.this, "Nepareiza atbilde", Toast.LENGTH_SHORT).show();
+            final Toast toast = Toast.makeText(QuestionsActivity.this, "Nepareiza atbilde", Toast.LENGTH_SHORT);
+            toast.show();
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    toast.cancel();
+                }
+            }, 100); //1000 ms = 1 sec
+            if(currentQuestion != qcount && currentQuestion != countryList.size()) {
+                setQuestionView();
+            }
+            else {
+                //taketh you to rezults
+                Intent intent = new Intent(QuestionsActivity.this, RecordsActivity.class);
+                intent.putExtra("score", score);
+                intent.putExtra("questions", qcount);
+                intent.putExtra("regions", regions);
+                startActivity(intent);
+            }
+        }
     }
 
     private int[] getRandomNumberArr(int max, int size){ //max - maximum value, size - size of arr that be returned
@@ -194,8 +211,6 @@ public class QuestionsActivity extends Activity {
         //puts stuff together
         int [] arr = new int[]{0, 1, 2, 3}; //for buttons
         shuffleArray(arr); //maketh button order random in nature
-
-
         int [] countriesIndex;
         do {
             countriesIndex = getRandomNumberArr(countryList.size(), 3); //gets 3 unique random numbers for countries

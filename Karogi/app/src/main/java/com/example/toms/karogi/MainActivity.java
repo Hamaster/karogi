@@ -33,6 +33,16 @@ public class MainActivity extends Activity {
     ImageButton rekordi;
     ImageButton sakt;
 
+    /*
+    DatabaseHandler databaseHandler;
+    int countafrika;
+    int countaok;
+    int countzamerika;
+    int countdamerika;
+    int counteiropa;
+    int countazija;
+    */
+
     boolean btn5, btn10, btn15, btn20, btn50 = false;
     boolean btnVisasValstis, btnAfrika, btnAustralijaUnOkeanija, btnZiemelAmerika, btnAzija, btnDienvidAmerika, btnEiropa = false;
     boolean saktIsActive = false;
@@ -44,6 +54,16 @@ public class MainActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
+
+        /*
+        databaseHandler = new DatabaseHandler(this);
+        countafrika = databaseHandler.getAfrikaCountryCount();
+        countaok = databaseHandler.getAustralijaOkeanijaCountryCount();
+        countzamerika = databaseHandler.getZAmerikaCountryCount();
+        countdamerika = databaseHandler.getDAmerikaCountryCount();
+        counteiropa = databaseHandler.getEuropeCountryCount();
+        countazija = databaseHandler.getAzijaCountryCount();
+        */
 
         addListenersForMenuButtons();
         addListenersOnNumberButtons();

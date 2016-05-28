@@ -61,7 +61,7 @@ public class DatabaseHandler extends SQLiteOpenHelper{
         addCountry(q, db);
         q = new Country(8, "Polija", "polija", "Eiropa");
         addCountry(q, db);
-        q = new Country(9, "Apvienotā Karaliste", "uk", "Eiropa");
+        q = new Country(9, "Lielbritānija", "uk", "Eiropa");
         addCountry(q, db);
         q= new Country(10, "Spānija", "esp", "Eiropa");
         addCountry(q, db);
