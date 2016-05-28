@@ -11,13 +11,23 @@ public class DatabaseHandler extends SQLiteOpenHelper{
     // Database Version
 	private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "karogiDatabse";
-    private static final String COUNTRY_TABLE = "countries";
 
-    //questions table gots these column names:
+    //Table names
+    private static final String COUNTRY_TABLE = "countries";
+    private static final String RECORDS_TABLE = "records";
+
+    //country table column names:
     private static final String QID = "qid";
     private static final String COUNTRY_NAME = "countryName";
     private static final String FLAG_IMAGE_NAME = "flagImageName";
     private static final String REGION = "region";
+
+    //question table column names:
+    private  static final String RECORDS = "record";
+
+    //table create statements:
+    private static final String CREATE_TABLE_COUNTRIES = "CREATE TABLE "+ COUNTRY_TABLE +" ( "+QID+" INTEGER PRIMARY KEY, "+ COUNTRY_NAME+" TEXT, "+FLAG_IMAGE_NAME+" TEXT, "+ REGION +" TEXT)";
+    private static final String CREATE_TABLE_RECORDS = "CREATE TABLE "+RECORDS_TABLE+" (" +QID+" INTEGER PRIMARY KEY, "+RECORDS+" TEXT)";
 
     //private SQLiteDatabase database;
     public DatabaseHandler(Context context){
@@ -28,15 +38,16 @@ public class DatabaseHandler extends SQLiteOpenHelper{
    // SQLiteDatabase database;
     @Override
     public void onCreate(SQLiteDatabase database){ //create table statements
-       // this.database = database;
-        String tableCreation = "CREATE TABLE "+ COUNTRY_TABLE +" ( "+QID+" INTEGER PRIMARY KEY, "+ COUNTRY_NAME+" TEXT, "+FLAG_IMAGE_NAME+" TEXT, "+ REGION +" TEXT)";
-        database.execSQL(tableCreation);
+       // create tables
+        database.execSQL(CREATE_TABLE_RECORDS);
+        database.execSQL(CREATE_TABLE_COUNTRIES);
         addQuestions(database);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase database, int oldV, int newV){
         database.execSQL("DROP TABLE IF EXISTS "+ COUNTRY_TABLE);
+        database.execSQL("DROP TABLE IF EXISTS "+ RECORDS_TABLE);
         onCreate(database);
     }
 
@@ -465,5 +476,27 @@ public class DatabaseHandler extends SQLiteOpenHelper{
     public int getEuropeCountryCount(){
         SQLiteDatabase db = this.getReadableDatabase();
         return (int)DatabaseUtils.queryNumEntries(db, COUNTRY_TABLE, REGION+" ='Eiropa'");
+    }
+
+    public void  addRecord(int record){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(RECORDS, record);
+        db.insert(RECORDS_TABLE, null, values);
+        db.close(); // Closing database connection
+    }
+
+    public int getRecord(){
+        int max = 0;
+        String selQ = "SELECT MAX ("+RECORDS+") FROM "+RECORDS_TABLE;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selQ, null);
+        if(cursor.moveToFirst()){
+            do{
+                max = Integer.parseInt(cursor.getString(0));
+            }while (cursor.moveToNext());
+        }
+
+        return max;
     }
 }

@@ -10,9 +10,7 @@ import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import java.util.concurrent.TimeoutException;
-
-public class RecordsActivity extends Activity {
+public class RezultsActivity extends Activity {
 
     TextView pareiziAtbJaut;
     TextView precizitate;
@@ -24,14 +22,16 @@ public class RecordsActivity extends Activity {
     int total;
     double precizion;
     int points;
+    int record;
     String[] regions;
+    DatabaseHandler databaseHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_records);
+        setContentView(R.layout.activity_rezults);
         score = getIntent().getExtras().getInt("score");  //retrieves the score
         total = getIntent().getExtras().getInt("questions");  //retrieves the score
         pareiziAtbJaut = (TextView) findViewById(R.id.pareiziatbildetiejaut);
@@ -43,14 +43,21 @@ public class RecordsActivity extends Activity {
         punkti = (TextView) findViewById(R.id.punkti);
         points = (int)score * 10;
         punkti.setText("Points: "+Integer.toString(points));
+
+        databaseHandler = new DatabaseHandler(this);
+
+        databaseHandler.addRecord(points);
+        record = databaseHandler.getRecord();
+
         augstakaisRezultats = (TextView) findViewById(R.id.augstakaisrezultats);
+        augstakaisRezultats.setText("Augstākais rezultāts: "+Integer.toString(record));
 
         regions = getIntent().getExtras().getStringArray("regions");
         atkartot = (ImageButton) findViewById(R.id.imageButton_atkartot);
         atkartot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(RecordsActivity.this, QuestionsActivity.class);
+                Intent intent = new Intent(RezultsActivity.this, QuestionsActivity.class);
                 intent.putExtra("questionCount", total);
                 intent.putExtra("regions", regions);
                 startActivity(intent);
@@ -61,7 +68,7 @@ public class RecordsActivity extends Activity {
         uzIzvelni.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(RecordsActivity.this, MainActivity.class);
+                Intent intent = new Intent(RezultsActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         });

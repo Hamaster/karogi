@@ -105,7 +105,7 @@ public class QuestionsActivity extends Activity {
             }
             else {
                 //taketh you to rezults
-                Intent intent = new Intent(QuestionsActivity.this, RecordsActivity.class);
+                Intent intent = new Intent(QuestionsActivity.this, RezultsActivity.class);
                 intent.putExtra("score", score);
                 intent.putExtra("questions", qcount);
                 intent.putExtra("regions", regions);
@@ -128,7 +128,7 @@ public class QuestionsActivity extends Activity {
             }
             else {
                 //taketh you to rezults
-                Intent intent = new Intent(QuestionsActivity.this, RecordsActivity.class);
+                Intent intent = new Intent(QuestionsActivity.this, RezultsActivity.class);
                 intent.putExtra("score", score);
                 intent.putExtra("questions", qcount);
                 intent.putExtra("regions", regions);
