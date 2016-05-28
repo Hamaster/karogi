@@ -117,9 +117,8 @@ public class MainActivity extends Activity {
                 if(evaluateSakt()){
                     //goes to quiz
                     Intent intent = new Intent(MainActivity.this, QuestionsActivity.class);
-                    Bundle b = new Bundle();
-                    b.putInt("questionCount", evaluateQuestionCount());
-                    b.putStringArray("regions", evaluateRegions());
+                    intent.putExtra("questionCount", evaluateQuestionCount());
+                    intent.putExtra("regions", evaluateRegions());
                     startActivity(intent);
                 }
                 else{
