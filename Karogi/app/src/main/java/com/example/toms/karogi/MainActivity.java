@@ -127,7 +127,8 @@ public class MainActivity extends Activity {
         rekordi.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                //taketh you to records
+                Intent intent = new Intent(MainActivity.this, RecordsActivity.class);
+                startActivity(intent);
             }
         });
 

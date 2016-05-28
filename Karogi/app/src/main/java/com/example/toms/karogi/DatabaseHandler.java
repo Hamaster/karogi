@@ -28,6 +28,7 @@ public class DatabaseHandler extends SQLiteOpenHelper{
     //table create statements:
     private static final String CREATE_TABLE_COUNTRIES = "CREATE TABLE "+ COUNTRY_TABLE +" ( "+QID+" INTEGER PRIMARY KEY, "+ COUNTRY_NAME+" TEXT, "+FLAG_IMAGE_NAME+" TEXT, "+ REGION +" TEXT)";
     private static final String CREATE_TABLE_RECORDS = "CREATE TABLE "+RECORDS_TABLE+" (" +QID+" INTEGER PRIMARY KEY, "+RECORDS+" TEXT)";
+    private static final String ADD_ZERO_T0_RECORDS = "INSERT INTO "+RECORDS_TABLE+" ("+RECORDS+") VALUES (0);";
 
     //private SQLiteDatabase database;
     public DatabaseHandler(Context context){
@@ -41,6 +42,7 @@ public class DatabaseHandler extends SQLiteOpenHelper{
        // create tables
         database.execSQL(CREATE_TABLE_RECORDS);
         database.execSQL(CREATE_TABLE_COUNTRIES);
+        database.execSQL(ADD_ZERO_T0_RECORDS);
         addQuestions(database);
     }
 
