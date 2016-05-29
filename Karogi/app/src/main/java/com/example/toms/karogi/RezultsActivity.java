@@ -42,7 +42,7 @@ public class RezultsActivity extends Activity {
         precizitate.setText("Precizitāte: "+Integer.toString((int)(precizion))+"%");
         punkti = (TextView) findViewById(R.id.punkti);
         points = (int)score*10;
-        punkti.setText("Points: "+Integer.toString(points));
+        punkti.setText("Punkti: "+Integer.toString(points));
 
         databaseHandler = new DatabaseHandler(this);
 
