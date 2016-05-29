@@ -481,21 +481,22 @@ public class DatabaseHandler extends SQLiteOpenHelper{
     }
 
     public void  addRecord(String record){
+        String truncate = "DELETE FROM "+RECORDS_TABLE + "; VACUUM;";
+        String addRecord = "INSERT INTO "+RECORDS_TABLE+" ("+RECORDS+") VALUES ("+record+");";
         SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(RECORDS, record);
-        db.insert(RECORDS_TABLE, null, values);
+        db.execSQL(truncate);
+        db.execSQL(addRecord);
         db.close(); // Closing database connection
     }
 
-    public int getRecord(){
-        int max = 0;
+    public String getRecord(){
+        String max = null;
         String selQ = "SELECT MAX ("+RECORDS+") FROM "+RECORDS_TABLE;
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selQ, null);
         if(cursor.moveToFirst()){
             do{
-                max = Integer.parseInt(cursor.getString(0));
+                max = cursor.getString(0);
             }while (cursor.moveToNext());
         }
 

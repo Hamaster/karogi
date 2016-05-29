@@ -23,8 +23,8 @@ public class RecordsActivity extends Activity{
 
         record = (TextView) findViewById(R.id.rekords);
         databaseHandler = new DatabaseHandler(this);
-        rec = databaseHandler.getRecord(); //gets record from db
-        record.setText("Augstākais rezultāts: "+ Integer.toString(rec));
+        //rec = databaseHandler.getRecord(); //gets record from db
+        record.setText("Augstākais rezultāts: "+ databaseHandler.getRecord());
 
         goHome = (ImageButton) findViewById(R.id.imageButton_uz_izvelniR);
         goHome.setOnClickListener(new View.OnClickListener() {

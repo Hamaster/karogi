@@ -35,22 +35,26 @@ public class RezultsActivity extends Activity {
         score = getIntent().getExtras().getInt("score");  //retrieves the score
         total = getIntent().getExtras().getInt("questions");  //retrieves the score
         pareiziAtbJaut = (TextView) findViewById(R.id.pareiziatbildetiejaut);
-        pareiziAtbJaut.setText("Pareizi atbildētie jautājumi: "+Integer.toString((int)score)+"/"+Integer.toString(total));
+        pareiziAtbJaut.setText("Pareizi atbildētie jautājumi: " + Integer.toString((int) score) + "/" + Integer.toString(total));
 
         precizitate = (TextView) findViewById(R.id.precizitate);
         precizion = score/total*100;
-        precizitate.setText("Precizitāte: "+Integer.toString((int)(precizion))+"%");
+        precizitate.setText("Precizitāte: " + Integer.toString((int) (precizion)) + "%");
         punkti = (TextView) findViewById(R.id.punkti);
         points = (int)score*10;
         punkti.setText("Punkti: "+Integer.toString(points));
 
         databaseHandler = new DatabaseHandler(this);
 
-        databaseHandler.addRecord(Integer.toString(points));
-        record = databaseHandler.getRecord();
-
+       // databaseHandler.addRecord(Integer.toString(points));
         augstakaisRezultats = (TextView) findViewById(R.id.augstakaisrezultats);
-        augstakaisRezultats.setText("Augstākais rezultāts: "+Integer.toString(record));
+        record = Integer.parseInt(databaseHandler.getRecord());
+        if(record < points) {
+            databaseHandler.addRecord(Integer.toString(points));
+            augstakaisRezultats.setText("Augstākais rezultāts: " + Integer.toString(points));
+        }
+        else augstakaisRezultats.setText("Augstākais rezultāts: "+record);
+
 
         regions = getIntent().getExtras().getStringArray("regions");
         atkartot = (ImageButton) findViewById(R.id.imageButton_atkartot);
