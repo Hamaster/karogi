@@ -55,7 +55,7 @@
         android:layout_height="100dip"
         android:id="@+id/imageButton_secondOption"
         android:layout_centerVertical="true"
-
+        android:layout_marginTop="4dp"
         android:layout_below="@+id/imageButton_firstOption"
         android:layout_alignLeft="@+id/imageButton_firstOption"
         android:layout_alignRight="@+id/imageButton_firstOption"
@@ -74,7 +74,7 @@
         android:layout_width="170dip"
         android:layout_height="100dip"
         android:id="@+id/imageButton_forthOption"
-        android:layout_alignTop="@+id/imageButton_secondOption"
+        asandroid:layout_alignTop="@+id/imageButton_secondOption"
         android:layout_alignLeft="@+id/imageButton_thirdOption"
         android:layout_alignRight="@+id/imageButton_thirdOption"
         />
