@@ -55,6 +55,8 @@
         android:layout_height="100dip"
         android:id="@+id/imageButton_secondOption"
         android:layout_centerVertical="true"
+
+        android:layout_below="@+id/imageButton_firstOption"
         android:layout_alignLeft="@+id/imageButton_firstOption"
         android:layout_alignRight="@+id/imageButton_firstOption"
          />
