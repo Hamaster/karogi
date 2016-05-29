@@ -129,6 +129,36 @@
 ----
 #### RecordsActivity
 ###### Metodes
+* void onCreate() -- pieprasa no datubāzes rekordu, inicializē visus skatus un parāda rekordu
+
 ###### Mainīgie
 * ImageButton goHome -- poga, lai atgrieztos uz izvēlni
-* TextView record -- teksts, kurš parāda
+* TextView record -- teksts, kurš parāda rekordu
+* int rec -- satur rekordu
+* DatabaseHandler databaseHandler -- datubāzes objekts
+
+----
+#### RezultsActivity
+###### Metodes
+* void onCreate(Bundle savedInstanceState) -- inicializē mainīgos, iegūst un parāda rekordu, precizitati, jautājumu skaitu
+
+###### Mainīgie
+* TextView pareiziAtbJaut -- teksta skats pareizi atbildetajiem jautajumiem
+* TextView precizitate -- teksta skats precizitatei
+* TextView punkti -- teksta skats iegūtajiem punktiem
+* TextView augstakaisRezultats -- teksta skats rekordam
+* ImageButton atkartot -- poga, lai atkrtoti atbildetu uz jautājumiem
+* ImageButton uzIzvelni -- poga, lai atgrieztos uz izvēlni
+* double score -- mainīgais aprēķiniem
+* int total -- mainīgais aprēķiniemmainīgais aprēķiniem
+* double precizion -- satur jautājumu atbildēšanas precizitāti
+* int points -- iegūtie punkti
+* int record -- patreizējais rekords
+* String[] regions -- reģioni, no kuriem atlasītas valstis
+* DatabaseHandler databaseHandler -- datubāzes objekts
+
+----
+#### SplashActivity
+###### Metodes
+* void onCreate() -- kamēr ielādējas MainActivity, uz ekrāna parāda lietotnes ikonu
+###### Mainīgo nav
