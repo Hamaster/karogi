@@ -480,7 +480,7 @@ public class DatabaseHandler extends SQLiteOpenHelper{
         return (int)DatabaseUtils.queryNumEntries(db, COUNTRY_TABLE, REGION+" ='Eiropa'");
     }
 
-    public void  addRecord(int record){
+    public void  addRecord(String record){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(RECORDS, record);

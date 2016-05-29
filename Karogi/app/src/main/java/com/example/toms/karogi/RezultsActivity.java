@@ -41,12 +41,12 @@ public class RezultsActivity extends Activity {
         precizion = score/total*100;
         precizitate.setText("Precizitāte: "+Integer.toString((int)(precizion))+"%");
         punkti = (TextView) findViewById(R.id.punkti);
-        points = (int)score * 10;
+        points = (int)score*10;
         punkti.setText("Points: "+Integer.toString(points));
 
         databaseHandler = new DatabaseHandler(this);
 
-        databaseHandler.addRecord(points);
+        databaseHandler.addRecord(Integer.toString(points));
         record = databaseHandler.getRecord();
 
         augstakaisRezultats = (TextView) findViewById(R.id.augstakaisrezultats);
