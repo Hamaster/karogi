@@ -54,4 +54,81 @@
 * String CREATE_TABLE_COUNTRIES -- valstu tabulas izveides skripts
 * String CREATE_TABLE_RECORDS -- rekordu tabulas izveides skripts
 * String ADD_ZERO_T0_RECORDS -- skripts noklusējuma vērtības ievietošanai rekordu tabulā
+
 ----
+#### MainActivity
+###### Metodes
+* void onCreate(Bundle savedInstanceState) -- izsauc metodes, kuras inicializē visu pogu funkcionalitātes
+* boolean evaluateSakt() -- izvērtē, vai poga "sākt" ir aktīva
+* String[] evaluateRegions() -- reģistrē String masīvā lietotāja reģionu izvēli
+* void saktBackgroundCheck() -- izmaina pogas "sākt" attēlu atkarībā no lietotāja izvēles
+* int evaluateQuestionCount() -- izvērtē lietotāja jautājumu skaita izvēli
+* void addListenersForMenuButtons() -- inicializē rekordu un sākt pogas
+* void addListenersForAreaButtons() -- inicializē reģionu pogas
+* void addListenersOnNumberButtons() -- inicializē jautājumu skaita pogas
+
+###### Mainīgie
+* ImageButton button_5 -- poga "5"
+* ImageButton button_10 -- poga "10"
+* ImageButton button_15 -- poga "15"
+* ImageButton button_20 -- poga "20"
+* ImageButton button_50 -- poga "50"
+* ImageButton visasValstis  -- poga
+* ImageButton afrika -- poga afrika
+* ImageButton australijaUnOkeanija -- poga australijaUnOkeanija
+* ImageButton ziemelAmerika -- poga ziemelAmerika
+* ImageButton azija -- poga azija
+* ImageButton dienvidAmerika -- poga dienvidAmerika
+* ImageButton eiropa -- poga eiropa
+* ImageButton rekordi -- poga rekordi
+* ImageButton sakt -- poga saktsakt
+* boolean btn5 -- atbild vai poga "5" ir nospiesta
+* boolean btn10 -- atbild vai poga "10" ir nospiesta
+* boolean btn15 -- atbild vai poga "15" ir nospiesta
+* boolean btn20 -- atbild vai poga "20" ir nospiesta
+* boolean btn50 -- atbild vai poga "50" ir nospiesta
+* boolean btnVisasValstis -- atbild vai poga "visasValstis" ir nospiesta
+* boolean btnAfrika -- atbild vai poga "afrika" ir nospiesta
+* boolean btnAustralijaUnOkeanija -- atbild vai poga "australijaUnOkeanija" ir nospiesta
+* boolean btnZiemelAmerika -- atbild vai poga "ziemelAmerika" ir nospiesta
+* boolean btnAzija -- atbild vai poga "azija" ir nospiesta
+* boolean btnDienvidAmerika -- atbild vai poga "dienvidAmerika" ir nospiesta
+* boolean btnEiropa -- atbild vai poga "eiropa" ir nospiesta
+* boolean saktIsActive -- atbild vai poga "sakt" ir var tikt nospiesta
+* int questionCount -- satur lietotāja izvēlēto jautājumu skaitu
+
+----
+#### QuestionsActivity
+###### Metodes
+* void onCreate(Bundle savedInstanceState) -- iegūst jautājumu skaitu, reģionus, izsauc pārējās metodes
+* void addListenersForButtons() -- inicializē visas pogas
+* void getAnswer(Object object) -- izvērtē atbildes pareizību, sāk nākošo jautājumu, ja tāds ir
+* int[] getRandomNumberArr(int max, int size) -- izveido nejaušas secības masīvu izmērā size ar lielāko vērtību max
+* void shuffleArray(int[] array) -- pārkārto masīva elementus nejaušā secībā
+* boolean arrHasNumber(int[] a, int key) -- meklē key ciparu masīvā a
+* List<Country> setSelectedCountryList(String[] regions) -- atkarībā no reģioniem, pievieno valstis sarakstam
+* setQuestionView() -- atjauno jautājumus
+
+###### Mainīgie
+* List<Country>countryList -- saraksts ar valstīm
+* int score -- iegūtie punkti
+* int currentQuestion -- pašlaik uzdotais jautājums, valsts
+* int qcount -- jautājumu skaits
+* String [] regions -- izvēlētie reģioni
+* Country trueCountry -- valsts, kas ir pareizā atbilde
+* TextView txtCountry -- teksta skats, kurā uzdots valsts nosaukums
+* TextView currQ -- patreizējais valsts objekts
+* ImageButton btnA -- izvēles poga
+* ImageButton btnB -- izvēles poga
+* ImageButton btnC -- izvēles poga
+* ImageButton btnD -- izvēles poga
+* ImageButton[] imgBArr -- izvēles pogu masīvs
+* ImageButton btnPartraukt -- poga pārtraukt
+* DatabaseHandler databaseHandler -- datubāzes objets
+
+----
+#### RecordsActivity
+###### Metodes
+###### Mainīgie
+* ImageButton goHome -- poga, lai atgrieztos uz izvēlni
+* TextView record -- teksts, kurš parāda

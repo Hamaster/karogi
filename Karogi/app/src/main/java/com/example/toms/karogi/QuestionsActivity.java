@@ -19,7 +19,7 @@ public class QuestionsActivity extends Activity {
     int currentQuestion = 0;
     int qcount; //the selected question count by user
     String [] regions;
-    int[] countriesAsked; //arr of country iDs, that have already been asked to answer
+   // int[] countriesAsked; //arr of country iDs, that have already been asked to answer
     Country trueCountry;
     TextView txtCountry;
     TextView currQ;
@@ -36,7 +36,7 @@ public class QuestionsActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questions);
         qcount = getIntent().getExtras().getInt("questionCount");  //retrieves the question count
-        countriesAsked = new int[qcount]; //sets the aswer array size
+       // countriesAsked = new int[qcount]; //sets the aswer array size
 
         regions = getIntent().getExtras().getStringArray("regions"); //string arr containing user made region selection
         databaseHandler = new DatabaseHandler(this);
