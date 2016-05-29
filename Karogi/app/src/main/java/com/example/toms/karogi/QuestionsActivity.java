@@ -22,6 +22,7 @@ public class QuestionsActivity extends Activity {
     int[] countriesAsked; //arr of country iDs, that have already been asked to answer
     Country trueCountry;
     TextView txtCountry;
+    TextView currQ;
     ImageButton btnA;
     ImageButton btnB;
     ImageButton btnC;
@@ -43,6 +44,7 @@ public class QuestionsActivity extends Activity {
         Collections.shuffle(countryList); //shuffles thou list
 
         txtCountry = (TextView) findViewById(R.id.valstsNosaukums);
+        currQ = (TextView) findViewById(R.id.currentQ);
         addListenersForButtons();
 
         imgBArr = new ImageButton[]{btnA, btnB, btnC, btnD};
@@ -223,6 +225,7 @@ public class QuestionsActivity extends Activity {
         currentQuestion++;
 
         txtCountry.setText(trueCountry.getCountryName()); //maketh textview
+        currQ.setText(Integer.toString(currentQuestion)+" / "+Integer.toString(qcount));
         int resIdA = getResources().getIdentifier(trueCountry.getFlagImageName(), "drawable", getPackageName());
         int resIdB = getResources().getIdentifier(falseCountry1.getFlagImageName(), "drawable", getPackageName());
         int resIdC = getResources().getIdentifier(falseCountry2.getFlagImageName(), "drawable", getPackageName());

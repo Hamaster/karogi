@@ -22,6 +22,19 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/currentQ"
+        android:text="0/100"
+        android:textColor="@color/darkBrown"
+        android:textSize="20.0sp"
+        android:textStyle="bold"
+        android:layout_above="@+id/imageButton_partraukt"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="27dp" />
+
+
      <View
         android:id="@+id/view1"
         android:layout_height="1dp"
