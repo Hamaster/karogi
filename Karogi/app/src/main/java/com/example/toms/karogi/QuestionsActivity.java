@@ -18,6 +18,7 @@ public class QuestionsActivity extends Activity {
     int score = 0;
     int currentQuestion = 0;
     int qcount; //the selected question count by user
+    int countriesInRegions;
     String [] regions;
    // int[] countriesAsked; //arr of country iDs, that have already been asked to answer
     Country trueCountry;
@@ -43,12 +44,29 @@ public class QuestionsActivity extends Activity {
         countryList = setSelectedCountryList(regions); //only countries from selected regions are given
         Collections.shuffle(countryList); //shuffles thou list
 
+        calcRegionCountryCount();
+
+
         txtCountry = (TextView) findViewById(R.id.valstsNosaukums);
         currQ = (TextView) findViewById(R.id.currentQ);
         addListenersForButtons();
 
         imgBArr = new ImageButton[]{btnA, btnB, btnC, btnD};
         setQuestionView();
+    }
+
+    private void calcRegionCountryCount(){
+        if(regions[0].equals("visasValstisOn")) {
+            countriesInRegions = databaseHandler.getAfrikaCountryCount() + databaseHandler.getAustralijaOkeanijaCountryCount()+databaseHandler.getAzijaCountryCount()+databaseHandler.getDAmerikaCountryCount()+databaseHandler.getZAmerikaCountryCount()+databaseHandler.getEuropeCountryCount();
+            return;
+        }
+        if(regions[1].equals("afrikaOn")) countriesInRegions += databaseHandler.getAfrikaCountryCount();
+        if(regions[2].equals("australijaUnOkeanijaOn")) countriesInRegions += databaseHandler.getAustralijaOkeanijaCountryCount();
+        if(regions[3].equals("ziemelAmerikaOn")) countriesInRegions += databaseHandler.getZAmerikaCountryCount();
+        if(regions[4].equals("azijaOn")) countriesInRegions += databaseHandler.getAzijaCountryCount();
+        if(regions[5].equals("dienvidAmerikaOn")) countriesInRegions += databaseHandler.getDAmerikaCountryCount();
+        if(regions[6].equals("eiropaOn")) countriesInRegions += databaseHandler.getEuropeCountryCount();
+        return;
     }
 
     private void addListenersForButtons(){
@@ -224,8 +242,14 @@ public class QuestionsActivity extends Activity {
         Country falseCountry3 = countryList.get(countriesIndex[2]);
         currentQuestion++;
 
+        int temp;
+        if(countriesInRegions < qcount) {
+            temp = countriesInRegions;
+        }
+            else temp = qcount;
+
         txtCountry.setText(trueCountry.getCountryName()); //maketh textview
-        currQ.setText(Integer.toString(currentQuestion)+" / "+Integer.toString(qcount));
+        currQ.setText(Integer.toString(currentQuestion)+" / "+Integer.toString(temp));
         int resIdA = getResources().getIdentifier(trueCountry.getFlagImageName(), "drawable", getPackageName());
         int resIdB = getResources().getIdentifier(falseCountry1.getFlagImageName(), "drawable", getPackageName());
         int resIdC = getResources().getIdentifier(falseCountry2.getFlagImageName(), "drawable", getPackageName());
