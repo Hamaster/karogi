@@ -19,9 +19,8 @@
         android:textColor="@color/darkBrown"
         android:textSize="20.0sp"
         android:textStyle="bold"
-        android:layout_above="@+id/imageButton_uz_izvelniR"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="164dp" />
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"/>
 
     <TextView
         android:layout_width="wrap_content"

@@ -142,7 +142,7 @@ public class QuestionsActivity extends Activity {
                 public void run() {
                     toast.cancel();
                 }
-            }, 100); //1000 ms = 1 sec
+            }, 500); //1000 ms = 1 sec
             if(currentQuestion != qcount && currentQuestion != countryList.size()) {
                 setQuestionView();
             }
