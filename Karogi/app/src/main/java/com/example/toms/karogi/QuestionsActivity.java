@@ -14,7 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class QuestionsActivity extends Activity {
-    List<Country>countryList = new ArrayList<>();;
+    List<Country>countryList = new ArrayList<>();
     int score = 0;
     int currentQuestion = 0;
     int qcount; //the selected question count by user
@@ -148,9 +148,10 @@ public class QuestionsActivity extends Activity {
             }
             else {
                 //taketh you to rezults
+
                 Intent intent = new Intent(QuestionsActivity.this, RezultsActivity.class);
                 intent.putExtra("score", score);
-                intent.putExtra("questions", qcount);
+                intent.putExtra("questions", currentQuestion);
                 intent.putExtra("regions", regions);
                 startActivity(intent);
             }
